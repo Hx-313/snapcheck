@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snapcheck/Auth/ui/widgets/my_button.dart';
 import 'package:snapcheck/Auth/ui/widgets/my_text_field.dart';
 
 class SignInPage extends StatefulWidget {
@@ -42,6 +43,7 @@ class _SignInPageState extends State<SignInPage> {
             padding: EdgeInsets.symmetric(horizontal: 60.0),
             child: Image.asset('assets/images/finalLogo.png'),
           ),
+          SizedBox(height: 27.0),
           Padding(
             padding:
                 const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
@@ -51,7 +53,7 @@ class _SignInPageState extends State<SignInPage> {
               color: Colors.white,
               child: SizedBox(
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.7,
+                height: MediaQuery.of(context).size.height * 0.75,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -126,17 +128,46 @@ class _SignInPageState extends State<SignInPage> {
                               });
                             },
                           ),
-                          Text(
-                            'Remember Me',
-                            style: TextStyle(
-                              fontFamily: 'Inter',
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.w500,
-                              color: Color(0xFF0A0338),
+                          FittedBox(
+                            child: Text(
+                              'Remember Me',
+                              style: TextStyle(
+                                fontFamily: 'Inter',
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xFF0A0338),
+                              ),
+                            ),
+                          ),
+                          Spacer(),
+                          GestureDetector(
+                            onTap: () {},
+                            child: FittedBox(
+                              child: Text(
+                                'Forgot Password ?',
+                                style: TextStyle(
+                                  fontFamily: 'Inter',
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.w500,
+                                  color: Color(0xFF4D81E7),
+                                ),
+                              ),
                             ),
                           ),
                         ],
                       ),
+                    ),
+                    SizedBox(
+                      height: 46.0,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 24.0),
+                      child: MyButton(
+                        onTap: () {},
+                      ),
+                    ),
+                    SizedBox(
+                      height: 145,
                     )
                   ],
                 ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snapcheck/auth_gate.dart';
+import 'package:snapcheck/Auth/ui/pages/sign_in_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen>
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => AuthGate(),
+          builder: (context) => SignInPage(),
         ),
       );
     });

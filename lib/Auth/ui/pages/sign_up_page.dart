@@ -62,145 +62,148 @@ class _SignUpPageState extends State<SignUpPage> {
                 child: SizedBox(
                   width: double.infinity,
                   height: MediaQuery.of(context).size.height * 0.8,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 10.0, left: 16.0),
-                        child: IconButton(
-                          icon: Icon(Icons.arrow_back),
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10.0, left: 16.0),
+                          child: IconButton(
+                            icon: Icon(Icons.arrow_back),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                          ),
                         ),
-                      ),
-                      Center(
-                        child: ShaderMask(
-                          shaderCallback: (bounds) {
-                            return _gradient.createShader(
-                              Rect.fromLTRB(0, 0, bounds.width, bounds.height),
-                            );
-                          },
-                          child: Text(
-                            "Sign Up",
-                            style: TextStyle(
-                              fontSize: 26.0,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontFamily: 'Inter',
+                        Center(
+                          child: ShaderMask(
+                            shaderCallback: (bounds) {
+                              return _gradient.createShader(
+                                Rect.fromLTRB(
+                                    0, 0, bounds.width, bounds.height),
+                              );
+                            },
+                            child: Text(
+                              "Sign Up",
+                              style: TextStyle(
+                                fontSize: 26.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontFamily: 'Inter',
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        height: Paddings.reponsiveHeight(context, 20),
-                      ),
-                      Center(
-                        child: FittedBox(
-                          child: RichText(
-                            text: TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: "Already Have an Account?",
-                                  style: TextStyle(
-                                    fontFamily: 'Inter',
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.black,
+                        SizedBox(
+                          height: Paddings.reponsiveHeight(context, 20),
+                        ),
+                        Center(
+                          child: FittedBox(
+                            child: RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: "Already Have an Account?",
+                                    style: TextStyle(
+                                      fontFamily: 'Inter',
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.black,
+                                    ),
                                   ),
-                                ),
-                                TextSpan(
-                                  text: " Sign In",
-                                  style: TextStyle(
-                                    fontFamily: 'Inter',
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.blue,
-                                  ),
-                                  recognizer: TapGestureRecognizer()
-                                    ..onTap = () {
-                                      Navigator.pop(context);
-                                    },
-                                )
-                              ],
+                                  TextSpan(
+                                    text: " Sign In",
+                                    style: TextStyle(
+                                      fontFamily: 'Inter',
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.blue,
+                                    ),
+                                    recognizer: TapGestureRecognizer()
+                                      ..onTap = () {
+                                        Navigator.pop(context);
+                                      },
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      SizedBox(height: 46.0),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.35,
-                            child: MyTextField(
-                              hintText: 'First Name',
-                              keyboardType: TextInputType.name,
-                              controller: _fNameController,
-                              label: 'First Name',
+                        SizedBox(height: 46.0),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.35,
+                              child: MyTextField(
+                                hintText: 'First Name',
+                                keyboardType: TextInputType.name,
+                                controller: _fNameController,
+                                label: 'First Name',
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.35,
-                            child: MyTextField(
-                              hintText: 'Last Name',
-                              keyboardType: TextInputType.name,
-                              controller: _lNameController,
-                              label: 'Last Name',
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.35,
+                              child: MyTextField(
+                                hintText: 'Last Name',
+                                keyboardType: TextInputType.name,
+                                controller: _lNameController,
+                                label: 'Last Name',
+                              ),
                             ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 16.0,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 24.0),
+                          child: MyTextField(
+                            hintText: 'Enter your Email',
+                            keyboardType: TextInputType.emailAddress,
+                            controller: _emailController,
+                            label: 'Email',
                           ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 16.0,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 24.0),
-                        child: MyTextField(
-                          hintText: 'Enter your Email',
-                          keyboardType: TextInputType.emailAddress,
-                          controller: _emailController,
-                          label: 'Email',
                         ),
-                      ),
-                      SizedBox(
-                        height: 16.0,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 24.0),
-                        child: MyTextField(
-                          hintText: 'Enter your Password',
-                          keyboardType: TextInputType.emailAddress,
-                          controller: _passwordController,
-                          label: 'set Password',
+                        SizedBox(
+                          height: 16.0,
                         ),
-                      ),
-                      SizedBox(
-                        height: Paddings.reponsiveHeight(context, 45),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 24.0),
-                        child: MyButton(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          text: 'Sign Up',
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 24.0),
+                          child: MyTextField(
+                            hintText: 'Enter your Password',
+                            keyboardType: TextInputType.emailAddress,
+                            controller: _passwordController,
+                            label: 'set Password',
+                          ),
                         ),
-                      ),
-                      SizedBox(
-                        height: 16.0,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 24.0),
-                        child: SubscriptionButton(
-                          text: 'Subscription',
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
+                        SizedBox(
+                          height: Paddings.reponsiveHeight(context, 45),
                         ),
-                      )
-                    ],
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 24.0),
+                          child: MyButton(
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                            text: 'Sign Up',
+                          ),
+                        ),
+                        SizedBox(
+                          height: 16.0,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 24.0),
+                          child: SubscriptionButton(
+                            text: 'Subscription',
+                            onTap: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),

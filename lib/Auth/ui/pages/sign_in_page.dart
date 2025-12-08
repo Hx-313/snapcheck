@@ -48,10 +48,13 @@ class _SignInPageState extends State<SignInPage> {
               padding: EdgeInsets.symmetric(horizontal: 60.0),
               child: Image.asset('assets/images/finalLogo.png'),
             ),
-            SizedBox(height: 27.0),
+            SizedBox(
+              height: Paddings.reponsiveHeight(context, 27.0),
+            ),
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+              padding: EdgeInsets.symmetric(
+                  vertical: Paddings.reponsiveHeight(context, 10.0),
+                  horizontal: 20.0),
               child: Card(
                 elevation: 5,
                 shadowColor: Colors.grey,
@@ -90,7 +93,7 @@ class _SignInPageState extends State<SignInPage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 46.0),
+                      SizedBox(height: Paddings.reponsiveHeight(context, 46.0)),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 24.0),
                         child: MyTextField(
@@ -101,7 +104,7 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                       ),
                       SizedBox(
-                        height: 16.0,
+                        height: Paddings.reponsiveHeight(context, 16.0),
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 24.0),
@@ -112,10 +115,10 @@ class _SignInPageState extends State<SignInPage> {
                           label: 'Password',
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 24.0),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.8,
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Checkbox(
                               activeColor: Color(0xFF0A0338),
@@ -163,7 +166,7 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                       ),
                       SizedBox(
-                        height: 46.0,
+                        height: Paddings.reponsiveHeight(context, 46.0),
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 24.0),
@@ -180,7 +183,7 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                       ),
                       SizedBox(
-                        height: 24.0,
+                        height: Paddings.reponsiveHeight(context, 46.0),
                       ),
                       RichText(
                         text: TextSpan(
@@ -215,9 +218,6 @@ class _SignInPageState extends State<SignInPage> {
                           ],
                         ),
                       ),
-                      SizedBox(
-                        height: Paddings.reponsiveHeight(context, 145),
-                      )
                     ],
                   ),
                 ),

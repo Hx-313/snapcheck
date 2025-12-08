@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:snapcheck/common/paddings/paddings.dart';
+import 'package:snapcheck/home/ui/pages/dashboard.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
       );
 
   final screens = [
-    Center(child: Text("Home")),
+    Dashboard(),
     Center(child: Text("Search")),
     Center(child: Text("Features")),
     Center(child: Text("Note")),

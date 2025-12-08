@@ -18,10 +18,18 @@ class _HomeScreenState extends State<HomeScreen> {
         begin: Alignment.centerLeft,
         end: Alignment.centerRight,
       );
+
+  final screens = [
+    Center(child: Text("Home")),
+    Center(child: Text("Search")),
+    Center(child: Text("Features")),
+    Center(child: Text("Note")),
+    Center(child: Text("Profile"))
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(),
+      body: screens[index],
       bottomNavigationBar: Container(
         height: Paddings.reponsiveHeight(context, 64),
         decoration: BoxDecoration(

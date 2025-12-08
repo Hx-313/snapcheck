@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:snapcheck/Auth/ui/widgets/my_button.dart';
 import 'package:snapcheck/Auth/ui/widgets/my_text_field.dart';
+import 'package:snapcheck/Auth/ui/widgets/subscription_button.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -13,6 +14,9 @@ class SignUpPage extends StatefulWidget {
 class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _fNameController = TextEditingController();
+  final TextEditingController _lNameController = TextEditingController();
+
   final LinearGradient _gradient = LinearGradient(
     colors: [
       Color.fromARGB(255, 5, 70, 148),
@@ -37,6 +41,7 @@ class _SignUpPageState extends State<SignUpPage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.white,
           leading: IconButton(
             icon: Icon(Icons.arrow_back, color: Colors.black),
             onPressed: () {
@@ -65,7 +70,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   width: double.infinity,
                   height: MediaQuery.of(context).size.height * 0.75,
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       ShaderMask(
@@ -118,6 +123,32 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                       ),
                       SizedBox(height: 46.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.35,
+                            child: MyTextField(
+                              hintText: 'First Name',
+                              keyboardType: TextInputType.name,
+                              controller: _fNameController,
+                              label: 'First Name',
+                            ),
+                          ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.35,
+                            child: MyTextField(
+                              hintText: 'Last Name',
+                              keyboardType: TextInputType.name,
+                              controller: _lNameController,
+                              label: 'Last Name',
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 16.0,
+                      ),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 24.0),
                         child: MyTextField(
@@ -136,7 +167,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           hintText: 'Enter your Password',
                           keyboardType: TextInputType.emailAddress,
                           controller: _passwordController,
-                          label: 'Password',
+                          label: 'set Password',
                         ),
                       ),
                       SizedBox(
@@ -146,13 +177,18 @@ class _SignUpPageState extends State<SignUpPage> {
                         padding: EdgeInsets.symmetric(horizontal: 24.0),
                         child: MyButton(
                           onTap: () {},
+                          text: 'Sign Up',
                         ),
                       ),
                       SizedBox(
                         height: 24.0,
                       ),
-                      SizedBox(
-                        height: 145,
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 24.0),
+                        child: SubscriptionButton(
+                          text: 'Subscription',
+                          onTap: () {},
+                        ),
                       )
                     ],
                   ),

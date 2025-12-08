@@ -167,6 +167,7 @@ class _SignInPageState extends State<SignInPage> {
                         padding: EdgeInsets.symmetric(horizontal: 24.0),
                         child: MyButton(
                           onTap: () {},
+                          text: 'Sign In',
                         ),
                       ),
                       SizedBox(

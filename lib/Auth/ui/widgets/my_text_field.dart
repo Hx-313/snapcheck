@@ -26,7 +26,7 @@ class _MyTextFieldState extends State<MyTextField> {
     // TODO: implement initState
     super.initState();
     setState(() {
-      obscureText = widget.label.toLowerCase() == 'password';
+      obscureText = widget.label.toLowerCase().contains('password');
     });
   }
 
@@ -64,7 +64,7 @@ class _MyTextFieldState extends State<MyTextField> {
             color: Colors.black,
           ),
           decoration: InputDecoration(
-            suffixIcon: widget.label.toLowerCase() == 'password'
+            suffixIcon: widget.label.toLowerCase().contains('password')
                 ? obscureText
                     ? GestureDetector(
                         onTap: () {

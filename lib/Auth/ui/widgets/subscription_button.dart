@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 
-class MyButton extends StatefulWidget {
+class SubscriptionButton extends StatefulWidget {
   final String text;
   final Function() onTap;
-  const MyButton({super.key, required this.text, required this.onTap});
+  const SubscriptionButton({
+    super.key,
+    required this.text,
+    required this.onTap,
+  });
 
   @override
-  State<MyButton> createState() => _MyButtonState();
+  State<SubscriptionButton> createState() => _SubscriptionButtonState();
 }
 
-class _MyButtonState extends State<MyButton> {
+class _SubscriptionButtonState extends State<SubscriptionButton> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -17,15 +21,11 @@ class _MyButtonState extends State<MyButton> {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color(0xFF0E71EB),
-              Color(0xFF7433CC),
-            ],
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
-          ),
+          color: Color(0Xff253ea77a),
           borderRadius: BorderRadius.circular(8.0),
+          border: Border.all(
+            color: Color(0xFF375DFB),
+          ),
         ),
         child: Center(
           child: Padding(
@@ -33,7 +33,7 @@ class _MyButtonState extends State<MyButton> {
             child: Text(
               widget.text,
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.black,
                 fontFamily: 'Inter',
                 fontSize: 14,
                 fontWeight: FontWeight.w500,

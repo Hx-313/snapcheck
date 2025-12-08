@@ -182,7 +182,9 @@ class _SignUpPageState extends State<SignUpPage> {
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 24.0),
                         child: MyButton(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
                           text: 'Sign Up',
                         ),
                       ),
@@ -193,7 +195,9 @@ class _SignUpPageState extends State<SignUpPage> {
                         padding: EdgeInsets.symmetric(horizontal: 24.0),
                         child: SubscriptionButton(
                           text: 'Subscription',
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
                         ),
                       )
                     ],

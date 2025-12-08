@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:snapcheck/Auth/ui/pages/sign_up_page.dart';
 import 'package:snapcheck/Auth/ui/widgets/my_button.dart';
 import 'package:snapcheck/Auth/ui/widgets/my_text_field.dart';
+import 'package:snapcheck/common/paddings/paddings.dart';
+import 'package:snapcheck/home/ui/home_screen.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -166,7 +168,14 @@ class _SignInPageState extends State<SignInPage> {
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 24.0),
                         child: MyButton(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HomeScreen(),
+                              ),
+                            );
+                          },
                           text: 'Sign In',
                         ),
                       ),
@@ -207,7 +216,7 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                       ),
                       SizedBox(
-                        height: 145,
+                        height: Paddings.reponsiveHeight(context, 145),
                       )
                     ],
                   ),

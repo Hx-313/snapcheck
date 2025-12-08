@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:snapcheck/Auth/ui/pages/sign_up_page.dart';
 import 'package:snapcheck/Auth/ui/widgets/my_button.dart';
 import 'package:snapcheck/Auth/ui/widgets/my_text_field.dart';
 
@@ -33,148 +35,186 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 60.0),
-            child: Image.asset('assets/images/finalLogo.png'),
-          ),
-          SizedBox(height: 27.0),
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-            child: Card(
-              elevation: 5,
-              shadowColor: Colors.grey,
-              color: Colors.white,
-              child: SizedBox(
-                width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.75,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    ShaderMask(
-                      shaderCallback: (bounds) {
-                        return _gradient.createShader(
-                          Rect.fromLTRB(0, 0, bounds.width, bounds.height),
-                        );
-                      },
-                      child: Text(
-                        "Get Started Now",
-                        style: TextStyle(
-                          fontSize: 26.0,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontFamily: 'Inter',
-                        ),
-                      ),
-                    ),
-                    FittedBox(
-                      child: Text(
-                        'Create an account or log in to explore our app',
-                        style: TextStyle(
-                          fontFamily: 'Inter',
-                          fontSize: 12.0,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 46.0),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 24.0),
-                      child: MyTextField(
-                        hintText: 'Enter your Email',
-                        keyboardType: TextInputType.emailAddress,
-                        controller: _emailController,
-                        label: 'Email',
-                      ),
-                    ),
-                    SizedBox(
-                      height: 16.0,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 24.0),
-                      child: MyTextField(
-                        hintText: 'Enter your Password',
-                        keyboardType: TextInputType.emailAddress,
-                        controller: _passwordController,
-                        label: 'Password',
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 24.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Checkbox(
-                            activeColor: Color(0xFF0A0338),
-                            value: isCheked,
-                            side: BorderSide(
-                              color: Color(0xFF0A0338),
-                              width: 1.5,
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(4.0),
-                            ),
-                            onChanged: (bool? value) {
-                              setState(() {
-                                isCheked = value!;
-                              });
-                            },
+    return SafeArea(
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        backgroundColor: Colors.white,
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 60.0),
+              child: Image.asset('assets/images/finalLogo.png'),
+            ),
+            SizedBox(height: 27.0),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+              child: Card(
+                elevation: 5,
+                shadowColor: Colors.grey,
+                color: Colors.white,
+                child: SizedBox(
+                  width: double.infinity,
+                  height: MediaQuery.of(context).size.height * 0.75,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ShaderMask(
+                        shaderCallback: (bounds) {
+                          return _gradient.createShader(
+                            Rect.fromLTRB(0, 0, bounds.width, bounds.height),
+                          );
+                        },
+                        child: Text(
+                          "Get Started Now",
+                          style: TextStyle(
+                            fontSize: 26.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontFamily: 'Inter',
                           ),
-                          FittedBox(
-                            child: Text(
-                              'Remember Me',
-                              style: TextStyle(
-                                fontFamily: 'Inter',
-                                fontSize: 14.0,
-                                fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      FittedBox(
+                        child: Text(
+                          'Create an account or log in to explore our app',
+                          style: TextStyle(
+                            fontFamily: 'Inter',
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 46.0),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 24.0),
+                        child: MyTextField(
+                          hintText: 'Enter your Email',
+                          keyboardType: TextInputType.emailAddress,
+                          controller: _emailController,
+                          label: 'Email',
+                        ),
+                      ),
+                      SizedBox(
+                        height: 16.0,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 24.0),
+                        child: MyTextField(
+                          hintText: 'Enter your Password',
+                          keyboardType: TextInputType.emailAddress,
+                          controller: _passwordController,
+                          label: 'Password',
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 24.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Checkbox(
+                              activeColor: Color(0xFF0A0338),
+                              value: isCheked,
+                              side: BorderSide(
                                 color: Color(0xFF0A0338),
+                                width: 1.5,
                               ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(4.0),
+                              ),
+                              onChanged: (bool? value) {
+                                setState(() {
+                                  isCheked = value!;
+                                });
+                              },
                             ),
-                          ),
-                          Spacer(),
-                          GestureDetector(
-                            onTap: () {},
-                            child: FittedBox(
+                            FittedBox(
                               child: Text(
-                                'Forgot Password ?',
+                                'Remember Me',
                                 style: TextStyle(
                                   fontFamily: 'Inter',
                                   fontSize: 14.0,
                                   fontWeight: FontWeight.w500,
-                                  color: Color(0xFF4D81E7),
+                                  color: Color(0xFF0A0338),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                            Spacer(),
+                            GestureDetector(
+                              onTap: () {},
+                              child: FittedBox(
+                                child: Text(
+                                  'Forgot Password ?',
+                                  style: TextStyle(
+                                    fontFamily: 'Inter',
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xFF4D81E7),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 46.0,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 24.0),
-                      child: MyButton(
-                        onTap: () {},
+                      SizedBox(
+                        height: 46.0,
                       ),
-                    ),
-                    SizedBox(
-                      height: 145,
-                    )
-                  ],
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 24.0),
+                        child: MyButton(
+                          onTap: () {},
+                        ),
+                      ),
+                      SizedBox(
+                        height: 24.0,
+                      ),
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "Dont Have an Account?",
+                              style: TextStyle(
+                                fontFamily: 'Inter',
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.black,
+                              ),
+                            ),
+                            TextSpan(
+                              text: " Sign Up",
+                              style: TextStyle(
+                                fontFamily: 'Inter',
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.blue,
+                              ),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => SignUpPage(),
+                                    ),
+                                  );
+                                },
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 145,
+                      )
+                    ],
+                  ),
                 ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

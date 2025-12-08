@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:snapcheck/Auth/ui/widgets/my_button.dart';
 import 'package:snapcheck/Auth/ui/widgets/my_text_field.dart';
 import 'package:snapcheck/Auth/ui/widgets/subscription_button.dart';
+import 'package:snapcheck/common/paddings/paddings.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -40,19 +41,11 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.black),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        ),
         resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 60.0),
@@ -68,57 +61,70 @@ class _SignUpPageState extends State<SignUpPage> {
                 color: Colors.white,
                 child: SizedBox(
                   width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 0.75,
+                  height: MediaQuery.of(context).size.height * 0.8,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      ShaderMask(
-                        shaderCallback: (bounds) {
-                          return _gradient.createShader(
-                            Rect.fromLTRB(0, 0, bounds.width, bounds.height),
-                          );
-                        },
-                        child: Text(
-                          "Sign Up",
-                          style: TextStyle(
-                            fontSize: 26.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            fontFamily: 'Inter',
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10.0, left: 16.0),
+                        child: IconButton(
+                          icon: Icon(Icons.arrow_back),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                        ),
+                      ),
+                      Center(
+                        child: ShaderMask(
+                          shaderCallback: (bounds) {
+                            return _gradient.createShader(
+                              Rect.fromLTRB(0, 0, bounds.width, bounds.height),
+                            );
+                          },
+                          child: Text(
+                            "Sign Up",
+                            style: TextStyle(
+                              fontSize: 26.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontFamily: 'Inter',
+                            ),
                           ),
                         ),
                       ),
                       SizedBox(
-                        height: 20.0,
+                        height: Paddings.reponsiveHeight(context, 20),
                       ),
-                      FittedBox(
-                        child: RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: "Already Have an Account?",
-                                style: TextStyle(
-                                  fontFamily: 'Inter',
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.w400,
-                                  color: Colors.black,
+                      Center(
+                        child: FittedBox(
+                          child: RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: "Already Have an Account?",
+                                  style: TextStyle(
+                                    fontFamily: 'Inter',
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors.black,
+                                  ),
                                 ),
-                              ),
-                              TextSpan(
-                                text: " Sign In",
-                                style: TextStyle(
-                                  fontFamily: 'Inter',
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.blue,
-                                ),
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = () {
-                                    Navigator.pop(context);
-                                  },
-                              )
-                            ],
+                                TextSpan(
+                                  text: " Sign In",
+                                  style: TextStyle(
+                                    fontFamily: 'Inter',
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.blue,
+                                  ),
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      Navigator.pop(context);
+                                    },
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -171,7 +177,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                       ),
                       SizedBox(
-                        height: 46.0,
+                        height: Paddings.reponsiveHeight(context, 45),
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 24.0),
@@ -181,7 +187,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                       ),
                       SizedBox(
-                        height: 24.0,
+                        height: 16.0,
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 24.0),

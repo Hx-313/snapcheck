@@ -11,7 +11,6 @@ class AuthGate extends StatefulWidget {
 class _AuthGateState extends State<AuthGate> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Navigator.pushReplacement(
       context,

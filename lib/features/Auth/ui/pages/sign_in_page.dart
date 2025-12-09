@@ -1,7 +1,7 @@
-import 'package:device_info_sdk/device_info_sdk.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:snapcheck/common/paddings/paddings.dart';
+import 'package:snapcheck/core/services/device_info_service.dart';
 import 'package:snapcheck/features/Auth/ui/pages/sign_up_page.dart';
 import 'package:snapcheck/features/Auth/ui/widgets/my_button.dart';
 import 'package:snapcheck/features/Auth/ui/widgets/my_text_field.dart';
@@ -17,26 +17,6 @@ class _SignInPageState extends State<SignInPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  DeviceInfo? _deviceInfo;
-
-  Future<void> loadDeviceInfo() async {
-    try {
-      final sdk = DeviceInfoSDK.instance;
-      final deviceInfo = await sdk.getDeviceInfo();
-
-      setState(() {
-        _deviceInfo = deviceInfo;
-      });
-
-      debugPrint(('Mobile Brand: ${_deviceInfo!.brand ?? ''}'));
-      debugPrint('Device Name: ${_deviceInfo!.deviceName ?? ''}');
-      debugPrint('Battery Percentage: ${_deviceInfo!.battery!.batteryLevel}');
-      debugPrint('is Battery charging:  ${_deviceInfo!.battery!.isCharging}');
-    } catch (e) {
-      debugPrint(e.toString());
-    }
-  }
-
   final LinearGradient _gradient = LinearGradient(
     colors: [
       Color.fromARGB(255, 5, 70, 148),
@@ -45,6 +25,16 @@ class _SignInPageState extends State<SignInPage> {
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
   );
+
+  // Getting permissions
+
+  // get Device Info
+
+  @override
+  void initState() {
+    super.initState();
+    DeviceInfoService.getPermissions();
+  }
 
   @override
   void dispose() {
@@ -192,7 +182,7 @@ class _SignInPageState extends State<SignInPage> {
                         padding: EdgeInsets.symmetric(horizontal: 24.0),
                         child: MyButton(
                           onTap: () {
-                            loadDeviceInfo();
+                            DeviceInfoService.getDeviceInfo();
                           },
                           text: 'Sign In',
                         ),

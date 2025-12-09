@@ -3,8 +3,8 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-  battery_plus
-  connectivity_plus
+  permission_handler_windows
+  phone_info
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST

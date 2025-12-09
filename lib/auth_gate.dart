@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snapcheck/Auth/ui/pages/sign_in_page.dart';
+import 'package:snapcheck/features/Auth/ui/pages/sign_in_page.dart';
 
 class AuthGate extends StatefulWidget {
   const AuthGate({super.key});

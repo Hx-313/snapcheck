@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:snapcheck/splash%20screen/splash_screen.dart';
+import 'package:snapcheck/features/splash%20screen/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());

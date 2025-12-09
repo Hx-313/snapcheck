@@ -1,9 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:snapcheck/Auth/ui/widgets/my_button.dart';
-import 'package:snapcheck/Auth/ui/widgets/my_text_field.dart';
-import 'package:snapcheck/Auth/ui/widgets/subscription_button.dart';
 import 'package:snapcheck/common/paddings/paddings.dart';
+import 'package:snapcheck/features/Auth/ui/widgets/my_button.dart';
+import 'package:snapcheck/features/Auth/ui/widgets/my_text_field.dart';
+import 'package:snapcheck/features/Auth/ui/widgets/subscription_button.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});

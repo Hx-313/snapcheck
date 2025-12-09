@@ -5,6 +5,7 @@ import 'package:snapcheck/core/services/device_info_service.dart';
 import 'package:snapcheck/features/Auth/ui/pages/sign_up_page.dart';
 import 'package:snapcheck/features/Auth/ui/widgets/my_button.dart';
 import 'package:snapcheck/features/Auth/ui/widgets/my_text_field.dart';
+import 'package:snapcheck/features/home/presentation/pages/home_screen.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -25,10 +26,6 @@ class _SignInPageState extends State<SignInPage> {
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
   );
-
-  // Getting permissions
-
-  // get Device Info
 
   @override
   void initState() {
@@ -182,7 +179,15 @@ class _SignInPageState extends State<SignInPage> {
                         padding: EdgeInsets.symmetric(horizontal: 24.0),
                         child: MyButton(
                           onTap: () {
-                            DeviceInfoService.getDeviceInfo();
+                            // DeviceInfoService.getDeviceInfo()
+                            // .then((_) {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HomeScreen(),
+                              ),
+                            );
+                            // });
                           },
                           text: 'Sign In',
                         ),

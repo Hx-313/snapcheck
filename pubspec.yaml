@@ -38,6 +38,7 @@ dependencies:
   gradient_borders: ^1.0.2
   phone_info: ^0.1.0
   permission_handler: ^12.0.1
+  device_policy_manager: ^1.0.0
 
 dev_dependencies:
   flutter_test:
